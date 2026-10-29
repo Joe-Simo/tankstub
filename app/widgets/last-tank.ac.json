@@ -1,0 +1,32 @@
+{
+  "type": "AdaptiveCard",
+  "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+  "version": "1.5",
+  "body": [
+    { "type": "TextBlock", "text": "${title}", "weight": "Bolder", "size": "Medium", "wrap": false },
+    { "type": "TextBlock", "text": "${subtitle}", "isSubtle": true, "spacing": "None", "wrap": true },
+    {
+      "type": "Container",
+      "spacing": "Medium",
+      "$when": "${hasData}",
+      "items": [
+        { "type": "TextBlock", "text": "Last tank", "isSubtle": true, "size": "Small", "spacing": "None" },
+        { "type": "TextBlock", "text": "${lastTank}", "size": "ExtraLarge", "weight": "Bolder", "spacing": "None" },
+        { "type": "TextBlock", "text": "${average}", "isSubtle": true, "spacing": "None", "wrap": true },
+        {
+          "type": "ColumnSet",
+          "spacing": "Medium",
+          "columns": [
+            { "type": "Column", "width": "auto", "items": [{ "type": "TextBlock", "text": "${monthSpend}", "weight": "Bolder" }] },
+            { "type": "Column", "width": "stretch", "items": [{ "type": "TextBlock", "text": "this month", "isSubtle": true }] }
+          ]
+        },
+        { "type": "TextBlock", "text": "${serviceText}", "spacing": "Small", "weight": "Bolder", "color": "Attention", "$when": "${serviceText != ''}" }
+      ]
+    }
+  ],
+  "actions": [
+    { "type": "Action.Execute", "title": "Add fill-up", "verb": "add-fill", "$when": "${pro}" },
+    { "type": "Action.Execute", "title": "Open Tankstub", "verb": "open" }
+  ]
+}

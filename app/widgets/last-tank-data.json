@@ -1,0 +1,10 @@
+{
+  "title": "Tankstub",
+  "subtitle": "Open Tankstub to see your last tank here.",
+  "pro": false,
+  "hasData": false,
+  "lastTank": "",
+  "average": "",
+  "monthSpend": "",
+  "serviceText": ""
+}
